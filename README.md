@@ -61,7 +61,7 @@ Make sure to create foreign key constraints where appropriate.
 > [!TIP]
 > Try using Copilot Chat and file referencing.
 
-Once you have created the SQL make sure to save the file. Call it `lab1.sql`.
+Once you have created the SQL make sure to save the file. Save the script in `lab1.sql`.
 
 Ensure that you have documentation in the SQL file that explains the purpose of each table and the relationships between the tables.
 
@@ -78,25 +78,25 @@ Now we have a database defined, let's create some logic to interact with the dat
 
 You may be familiar with database views, stored procedures, and triggers. These are all ways to interact with the data in the database.
 
-### Create a view
+### Create a view: CustomerOrders
 
-Create a view that shows that shows customer orders and which doesn't include the customer's ID.
+Create a view called `CustomerOrders` that shows that shows customer orders and which doesn't include the customer's ID. Save the script in `lab2-view.sql`.
 
 Once you've created the view, ask Copilot to update the definition so it includes the Customer ID field and that orders are grouped by customer.
 
 > [!TIP]
 > If you run into issues, make sure to use GitHub Copilot chat to help identify how to fix them. You should be able to create and update the view without needing to write the SQL from scratch.
 
-### Create a stored procedure or function
+### Create a stored procedure or function: GetTotalOrdersForCustomer
 
-Before you implement a solution for this brief, ask GitHub Copilot Chat what the differences are between a stored procedure and a function.
+Before you implement a solution for this brief, ask GitHub Copilot Chat what the differences are between a stored procedure and a function. Save the script in `lab2-sproc.sql`.
 
 Once you understand the differences, create a solution for these scenarios:
 
 - Provide a way to get the total number of orders for a customer.
 - Provide a way to get the total value of orders for a customer.
 
-Once you've created the stored procedure or function, see if you can optimise the resulting SQL. What changes does Copilot suggest? Are they valid?
+Once you've created the stored procedure or function `GetTotalOrdersForCustomer`, see if you can optimise the resulting SQL. What changes does Copilot suggest? Are they valid?
 
 Stuck? Check out the [lab 2 help](help/lab2.md) for hints.
 
@@ -117,16 +117,16 @@ ORDER BY C.Firstname
 GROUP BY A.City 
 ```
 
-First up, try opening the SQL file and executing the query. If it doesn't run as expected, use GitHub Copilot to help identify the issue and fix it. There may be more than one problem with the query. Make sure that any solution you provide includes both an `ORDER BY` and a `GROUP BY` clause.
+First up, try opening the SQL file and executing the query. If it doesn't run as expected, use GitHub Copilot to help identify the issue and fix it. There may be more than one problem with the query. Make sure that any solution you provide includes both an `ORDER BY` and a `GROUP BY` clause. Save the updated script in `lab3-fixedquery.sql`.
 
 > [!TIP]
 > Depending on the database server you are using you might need to copy/paste any errors you receive into the chat to get help from Copilot. If you are using the command-line you could try out the `@terminal` agent.
 
 ### Modifying the Customer table
 
-In order to complete this next lab step, you will need to modify the `Customer` table to include a `EmailAddress` field. Use GitHub Copilot to generate the SQL to add this field to the table and to set the default to `NULL`. This field should hold case insensitive text. If your database server does not support case insensitive text, use a `VARCHAR(254)` field instead.
+In order to complete this next lab step, you will need to modify the `Customer` table to include a `EmailAddress` field. Use GitHub Copilot to generate the SQL to add this field to the table and to set the default to `NULL`. This field should hold case insensitive text. If your database server does not support case insensitive text, use a `VARCHAR(254)` field instead. Save the script in `lab3-newfield.sql`.
 
-Make sure to update the `lab1-solution.sql` file with the updated `Customer` table definition so you can use it in future exercises. Save the updated file as `lab3-solution.sql`.
+Make sure to update your `lab1.sql` file (or copy from `help\lab1-solution.sql`) with the updated `Customer` table definition so you can use it in future exercises. Save the updated file as `lab3-schema.sql`.
 
 ### Fixing a stored procedure
 
@@ -156,7 +156,7 @@ SELECT update_customer_email('7f1cf3dd-2281-41ec-8847-bab8411dbc6d', 'myemailadd
 SELECT * from Customer;
 ```
 
-Using GitHub Copilot, address the two highlighted issues and then validate the stored procedure works as expected by attempting to:
+Using GitHub Copilot, address the two highlighted issues and then validate the stored procedure works as expected by attempting to do below. Save the updated script in `lab3-fixedsproc.sql`.
 
 - Update the email address for a customer that doesn't exist (provide a GUID not listed in the table).
 - Update the email address for a customer with an invalid email address (e.g. `myemailaddress`).
